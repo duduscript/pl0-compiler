@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cctype>
 
-#include "Lexer.h"
-#include "Num.h"
-#include "Word.h"
-#include "Symbol.h"
-#include "Error.h"
+#include "../xxx.h/Lexer.h"
+#include "../xxx.h/Num.h"
+#include "../xxx.h/Word.h"
+#include "../xxx.h/Symbol.h"
+#include "../xxx.h/Error.h"
 
 Lexer::Lexer() : line(1) {}
 

@@ -1,7 +1,7 @@
 #ifndef WORD_H
 #define WORD_H
 
-#include "token.h"
+#include "Token.h"
 
 const int NUMBER_OF_KEYWORD = 14;
 

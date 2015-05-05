@@ -8,7 +8,7 @@ struct Id
 {
 	Id();
 	Id(int, int, int);
-	Id& operator=(Id&);
+	Id& operator=(const Id&);
 	int kind;
 	int value;
 	int level;

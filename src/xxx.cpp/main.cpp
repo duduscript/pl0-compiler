@@ -1,16 +1,14 @@
-#include "parse.h"
-#include "vm.h"
+#include "../xxx.h/Parse.h"
+#include "../xxx.h/Vm.h"
 
 #include <string>
 
-int main()
+int main(int argc, char *argv[])
 {
-	string FileName;
-	cin>>FileName;
+	std::string FileName = argv[1];
 	Parse p(FileName);
 	p.GrammerAnalyzier();
 	Vm virtualMach(p.getCode());
 	virtualMach.pl0();
-	system("pause");
 	return 0;
 }

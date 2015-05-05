@@ -1,4 +1,4 @@
-#include "Identifier.h"
+#include "../xxx.h/Identifier.h"
 
 Id::Id(){}
 
@@ -7,7 +7,7 @@ Id::Id(int _kind, int _level, int _addr) :
 {
 }
 
-Id& Id::operator=(Id& _id)
+Id& Id::operator=(const Id& _id)
 {
 	if (this == &_id) return *this;
 	this->kind = _id.kind;

@@ -1,7 +1,7 @@
 #ifndef NUM_H
 #define NUM_H
 
-#include "token.h"
+#include "Token.h"
 
 class Num : public Token
 {

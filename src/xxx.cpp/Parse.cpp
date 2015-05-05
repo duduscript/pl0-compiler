@@ -1,9 +1,9 @@
 #include <iostream>
 #include <sstream>
 
-#include "Parse.h"
-#include "Error.h"
-#include "Token.h"
+#include "../xxx.h/Parse.h"
+#include "../xxx.h/Error.h"
+#include "../xxx.h/Token.h"
 
 Parse::Parse() :look(0){}
 
@@ -56,7 +56,7 @@ void Parse::block()
 
 void Parse::decls()
 {
-	auto vardecl = [&]{ //定义变量
+	auto vardecl = [&](){ 
 		int numOfVarDecl = 0;
 		while (true){
 			move();
@@ -81,7 +81,7 @@ void Parse::decls()
 		icode.emitCode(INC, 0, numOfVarDecl);
 	};
 
-	auto condecl = [&]{ //定义常量
+	auto condecl = [&](){
 		while (true){
 			move();
 			if (look->GetTag() != IDENTSYM)
@@ -120,7 +120,7 @@ void Parse::decls()
 		}
 	};
 
-	auto procdecl = [&]{ //定义函数
+	auto procdecl = [&](){ 
 		while (true){
 			move();
 			if (look->GetTag() != IDENTSYM)

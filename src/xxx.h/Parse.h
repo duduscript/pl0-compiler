@@ -2,7 +2,7 @@
 #define PARSE_H
 
 #include "Lexer.h"
-#include "Objcode.h"
+#include "ObjCode.h"
 #include "Identifier.h"
 class Token;
 
