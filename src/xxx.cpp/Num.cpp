@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 
-#include "num.h"
+#include "Num.h"
 #include "Token.h"
 #include "Error.h"
 

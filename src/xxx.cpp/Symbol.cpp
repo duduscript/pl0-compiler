@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Symbol.h"
+#include "../xxx.h/Symbol.h"
 
 Symbol::Symbol(){}
 

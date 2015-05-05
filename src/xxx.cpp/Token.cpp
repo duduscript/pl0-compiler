@@ -1,4 +1,4 @@
-#include "Token.h"
+#include "../xxx.h/Token.h"
 
 Token::Token(){}
 
