@@ -1,7 +1,6 @@
-target : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
+a : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
 		   Lexer.o Symbol.o ObjCode.o Word.o Num.o
-	g++ -std=c++11 -o target main.o Parse.o Vm.o Error.o Token.o\
-			 Code.o Identifier.o Lexer.o Symbol.o ObjCode.o Word.o Num.o
+	g++ -std=c++11 -o a main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o Lexer.o Symbol.o ObjCode.o Word.o Num.o
 
 Parse.o : ./src/xxx.cpp/Parse.cpp ./src/xxx.h/Parse.h ./src/xxx.h/Error.h ./src/xxx.h/Token.h
 	g++ -std=c++11 -c ./src/xxx.cpp/Parse.cpp
@@ -41,4 +40,4 @@ main.o : ./src/xxx.cpp/main.cpp ./src/xxx.h/Vm.h
 	g++ -std=c++11 -c ./src/xxx.cpp/main.cpp
 
 clean:
-	rm target *.o
+	rm a *.o
