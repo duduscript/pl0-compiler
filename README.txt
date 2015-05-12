@@ -2,7 +2,7 @@ This is my first project in github.
 
 And it is a pl0 compiler.
 
-If you find there are bugs,please inform me!
+If you find bugs,please inform me!
 My email: duduscript@outlook.com
 
 If you like it,please star it!  ^.^
