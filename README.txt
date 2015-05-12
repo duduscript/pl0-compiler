@@ -14,6 +14,6 @@ http://en.wikipedia.org/wiki/PL/0
 Usage:  
 
 1. > make
-2. > ./a.out filepath
+2. > ./a filepath
 3. exec the program
 4. > make clean
