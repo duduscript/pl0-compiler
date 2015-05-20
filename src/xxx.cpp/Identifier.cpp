@@ -2,7 +2,7 @@
 
 Id::Id(){}
 
-Id::Id(int _kind, int _level, int _addr) :
+Id::Id(KIND _kind, int _level, int _addr) :
 	kind(_kind), level(_level), addr(_addr)
 {
 }

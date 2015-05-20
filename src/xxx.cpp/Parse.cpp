@@ -4,6 +4,7 @@
 #include "../xxx.h/Parse.h"
 #include "../xxx.h/Error.h"
 #include "../xxx.h/Token.h"
+#include "../xxx.h/Identifier.h"
 
 Parse::Parse() :look(0){}
 
@@ -18,7 +19,7 @@ void Parse::move()
 {
 	if (look != 0) {
 		delete look;
-		look = 0;
+		look = NULL;
 	}
 	look = lex.GetToken();
 }
@@ -65,7 +66,7 @@ void Parse::decls()
 			if (ident.id.find(look->GetLexeme()) != ident.id.end())
 				printError(29, look->GetLine());
 
-			ident.id[look->GetLexeme()] = Id(1,
+			ident.id[look->GetLexeme()] = Id(VAR,
 											 ident.currentLevel, 
 											 ident.currM[ident.currentLevel]++);
 			numOfVarDecl++;
@@ -86,7 +87,6 @@ void Parse::decls()
 			move();
 			if (look->GetTag() != IDENTSYM)
 				printError(4, look->GetLine());
-
 			if (ident.id.find(look->GetLexeme()) != ident.id.end())
 				printError(29, look->GetLine());
 			std::string idName = look->GetLexeme();
@@ -107,7 +107,7 @@ void Parse::decls()
 				ss >> sum;
 				return sum;
 			};
-			ident.id[idName].kind = 2;
+			ident.id[idName].kind = CONST;
 			ident.id[idName].value = convertStringToInt(look->GetLexeme());
 
 			move();
@@ -127,7 +127,7 @@ void Parse::decls()
 				printError(4, look->GetLine());
 			if (ident.id.find(look->GetLexeme()) != ident.id.end())
 				printError(29, look->GetLine());
-			ident.id[look->GetLexeme()] = Id(3, 
+			ident.id[look->GetLexeme()] = Id(PROC, 
 											 ident.currentLevel++,		
 											 icode.size() + 1); //proc的起始代码
 			int tmpAdrr1 = icode.size();
@@ -176,8 +176,7 @@ void Parse::stmts()
 	case IDENTSYM://assign
 		if (ident.id.find(look->GetLexeme()) == ident.id.end())
 			printError(11, look->GetLine());
-
-		if (ident.id[look->GetLexeme()].kind != 1)
+		if (ident.id[look->GetLexeme()].kind != VAR)
 			printError(12, look->GetLine());
 		tmp = look->GetLexeme();
 		
@@ -193,14 +192,10 @@ void Parse::stmts()
 		move();
 		if (look->GetTag() != IDENTSYM)
 			printError(14, look->GetLine());
-
 		if (ident.id.find(look->GetLexeme()) == ident.id.end())
 			printError(11, look->GetLine());
-
-		if (ident.id[look->GetLexeme()].kind == 1 ||
-			ident.id[look->GetLexeme()].kind == 2)
-				printError(15, (*look).GetLine());
-
+		if (ident.id[look->GetLexeme()].kind != PROC)
+			printError(15, (*look).GetLine());
 		tmp = look->GetLexeme();
 		icode.emitCode(CAL,
 					   abs(ident.id[tmp].level - ident.currentLevel),
@@ -210,9 +205,8 @@ void Parse::stmts()
 		while (true){
 			stmts();
 			move();
-			if (look->GetTag() != ENDSYM && 
-				look->GetTag() != SEMICOLOMSYM)
-					printError(5, look->GetLine());
+			if (look->GetTag() != ENDSYM && look->GetTag() != SEMICOLOMSYM)
+				printError(5, look->GetLine());
 			if (look->GetTag() == ENDSYM)
 				break;
 			else
@@ -258,7 +252,7 @@ void Parse::stmts()
 			printError(27, look->GetLine());
 		if (ident.id.find(look->GetLexeme()) == ident.id.end())
 			printError(11, look->GetLine());
-		if (ident.id[look->GetLexeme()].kind == 3)
+		if (ident.id[look->GetLexeme()].kind == PROC)
 			printError(35, look->GetLine());
 		icode.emitCode(SIO_IN, 0, 2);
 		tmp = look->GetLexeme();
@@ -376,11 +370,11 @@ void Parse::factor()
 		if (look->GetTag() != IDENTSYM && look->GetTag() != NUMBERSYM)
 			printError(23, look->GetLine());
 	}
-	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == 2)
+	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == CONST)
 		icode.emitCode(LIT, 
 					   0,
 					   ident.id[look->GetLexeme()].value);
-	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == 1)
+	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == VAR)
 		icode.emitCode(LOD,
 					   abs(ident.id[look->GetLexeme()].level - ident.currentLevel),
 					   ident.id[look->GetLexeme()].addr);

@@ -4,12 +4,14 @@
 #include <map>
 #include <vector>
 
+enum KIND {VAR = 1, CONST, PROC};
+
 struct Id
 {
 	Id();
-	Id(int, int, int);
+	Id(KIND, int, int);
 	Id& operator=(const Id&);
-	int kind;
+    KIND kind;
 	int value;
 	int level;
 	int addr;

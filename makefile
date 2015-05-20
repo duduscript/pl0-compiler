@@ -2,7 +2,7 @@ a : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
 		   Lexer.o Symbol.o ObjCode.o Word.o Num.o
 	g++ -std=c++11 -o a main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o Lexer.o Symbol.o ObjCode.o Word.o Num.o
 
-Parse.o : ./src/xxx.cpp/Parse.cpp ./src/xxx.h/Parse.h ./src/xxx.h/Error.h ./src/xxx.h/Token.h
+Parse.o : ./src/xxx.cpp/Parse.cpp ./src/xxx.h/Parse.h ./src/xxx.h/Error.h ./src/xxx.h/Token.h ./src/xxx.h/Identifier.h
 	g++ -std=c++11 -c ./src/xxx.cpp/Parse.cpp
 
 Vm.o : ./src/xxx.cpp/Vm.cpp ./src/xxx.h/Vm.h ./src/xxx.h/ObjCode.h ./src/xxx.h/Code.h
