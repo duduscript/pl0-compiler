@@ -28,8 +28,8 @@ void Parse::GrammerAnalyzier()
 {
 	lex.JudgeError();
 	program();
-	// icode.printCode();   测试输出中间代码
-	// std::cout << "Over!" << std::endl;
+	icode.printCode();
+	std::cout << "Over!" << std::endl;
 }
 
 ObjCode& Parse::getCode()
@@ -129,9 +129,9 @@ void Parse::decls()
 				printError(29, look->GetLine());
 			ident.id[look->GetLexeme()] = Id(PROC, 
 											 ident.currentLevel++,		
-											 icode.size() + 1); //proc的起始代码
+											 icode.size() + 1);
 			int tmpAdrr1 = icode.size();
-			icode.emitCode(JMP, 0, 0);		//暂时不知道跳转地址，设为0
+			icode.emitCode(JMP, 0, 0);
 			
 			move();
 			if (look->GetTag() != SEMICOLOMSYM)
@@ -139,7 +139,7 @@ void Parse::decls()
 			block();
 			icode.emitCode(OPR, 0, OPR_RET);
 			ident.currentLevel--;
-			icode.changeAdrr(tmpAdrr1, icode.size());	//修改跳转地址
+			icode.changeAdrr(tmpAdrr1, icode.size());
 			
 			move();
 			if (look->GetTag() != SEMICOLOMSYM)
@@ -169,8 +169,8 @@ void Parse::stmts()
 {
 	move();
 	std::string tmp;
-	int tmpIfAdrr1, tmpIfAdrr2;//用于case IFSYM的临时变量
-	int tmpWhileAdrr1, tmpWhileAdrr2;//用于case WHILESYM的临时变量
+	int tmpIfAdrr1, tmpIfAdrr2;
+	int tmpWhileAdrr1, tmpWhileAdrr2;
 	switch (look->GetTag())
 	{
 	case IDENTSYM://assign
@@ -263,8 +263,6 @@ void Parse::stmts()
 	case WRITESYM://write
 		expr();
 		icode.emitCode(SIO_OUT, 0, 1);
-		break;
-	case PERIODSYM://.
 		break;
 	default:
 		lex.PutToken(look);
