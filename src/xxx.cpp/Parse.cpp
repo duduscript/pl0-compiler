@@ -28,8 +28,8 @@ void Parse::GrammerAnalyzier()
 {
 	lex.JudgeError();
 	program();
-	icode.printCode();
-	std::cout << "Over!" << std::endl;
+	//icode.printCode();
+	//std::cout << "Over!" << std::endl;
 }
 
 ObjCode& Parse::getCode()
