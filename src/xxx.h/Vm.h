@@ -10,6 +10,8 @@ public:
 	~Vm();
 	void pl0();
 private:
+    Vm(const Vm&)=delete;
+    Vm& operator=(const Vm&)=delete;
 	ObjCode& objCode;
 };
 

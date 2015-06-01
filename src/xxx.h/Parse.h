@@ -28,6 +28,8 @@ public:
 	void PrintTemineCode();
 	ObjCode& getCode();
 private:
+    Parse(const Parse&)=delete;
+    Parse& operator=(const Parse&)=delete;
 	Lexer lex;
 	Token* look;
 	ObjCode icode;
