@@ -5,7 +5,7 @@
 #include <string>
 
 int main(int argc, char *argv[]){
-	if (argc > 2){
+	if (argc > 2 || argc == 1){
 		std::cerr<<"Usage: ./a.out filepath"<<std::endl;
 	} else {
 		std::string FileName = argv[1];

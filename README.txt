@@ -7,6 +7,7 @@ My email: duduscript@outlook.com
 
 If you like it,please star it!  ^.^
 
+**************************************************************
 
 About pl0 program language:
 http://en.wikipedia.org/wiki/PL/0
@@ -17,3 +18,7 @@ Usage:
 2. > ./a filepath
 3. exec the program
 4. > make clean
+
+I will appreciate it if you can understant my English. lol
+
+**************************************************************
