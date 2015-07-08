@@ -14,7 +14,6 @@ public:
 	~Parse();
 public:
 	void move();
-public:
 	void program();
 	void block();
 	void decls();
@@ -23,7 +22,6 @@ public:
 	void expr();
 	void term();
 	void factor();
-public:
 	void GrammerAnalyzier();
 	void PrintTemineCode();
 	ObjCode& getCode();

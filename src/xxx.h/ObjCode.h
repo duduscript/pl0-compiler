@@ -8,7 +8,7 @@ class ObjCode
 {
 public:
 	ObjCode();
-	ObjCode(ObjCode&);//œ»’‚—˘
+	ObjCode(ObjCode&);
 	~ObjCode();
 	void emitCode(int, int, int);
 	void printCode() const;
