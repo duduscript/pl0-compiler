@@ -22,8 +22,10 @@ public:
 private:
 	std::fstream in;
 	std::list<Token*> TokenList;
-private:
 	int line;
+private:
+	Lexer(const Lexer&)=delete;
+	Lexer& operator=(const Lexer&)=delete;
 };
 
 

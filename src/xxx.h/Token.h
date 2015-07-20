@@ -18,8 +18,8 @@ public:
 public:
 	virtual  void  Print();
 private:
-    Token(const Token&) = delete;
-    Token& operator=(const Token&) = delete;
+	Token(const Token&) = delete;
+	Token& operator=(const Token&) = delete;
 	std::string lexeme;
 	Tag tag;
 	int line;

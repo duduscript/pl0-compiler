@@ -11,7 +11,7 @@ struct Id
 	Id();
 	Id(KIND, int, int);
 	Id& operator=(const Id&);
-    KIND kind;
+	KIND kind;
 	int value;
 	int level;
 	int addr;
@@ -25,6 +25,9 @@ public:
 	std::map<std::string, Id> id;
 	std::vector<int> currM;
 	int currentLevel;
+private:
+	Identifier(const Identifier&)=delete;
+	Identifier& operator=(const Identifier&)=delete;
 };
 
 #endif // IDENTIFIER_H
