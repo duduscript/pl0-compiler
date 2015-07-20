@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <cstdlib>
 
 #include "../xxx.h/Parse.h"
 #include "../xxx.h/Error.h"
