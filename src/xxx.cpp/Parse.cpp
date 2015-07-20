@@ -100,15 +100,8 @@ void Parse::decls()
 			move();
 			if (look->GetTag() != NUMBERSYM)
 				printError(2, look->GetLine());
-			auto convertStringToInt = [](std::string tmp){
-				int sum = 0;
-				std::stringstream ss;
-				ss << tmp;
-				ss >> sum;
-				return sum;
-			};
 			ident.id[idName].kind = CONST;
-			ident.id[idName].value = convertStringToInt(look->GetLexeme());
+			ident.id[idName].value = atoi(look->GetLexeme().c_str());
 
 			move();
 			if (look->GetTag() == COMMASYM)
@@ -369,23 +362,11 @@ void Parse::factor()
 			printError(23, look->GetLine());
 	}
 	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == CONST)
-		icode.emitCode(LIT, 
-					   0,
-					   ident.id[look->GetLexeme()].value);
+		icode.emitCode(LIT, 0, ident.id[look->GetLexeme()].value);
 	if (look->GetTag() == IDENTSYM && ident.id[look->GetLexeme()].kind == VAR)
 		icode.emitCode(LOD,
 					   abs(ident.id[look->GetLexeme()].level - ident.currentLevel),
 					   ident.id[look->GetLexeme()].addr);
-	if (look->GetTag() == NUMBERSYM){
-		auto convertStringToInt = [](std::string tmp){
-			int sum = 0;
-			std::stringstream ss;
-			ss << tmp;
-			ss >> sum;
-			return sum;
-		};
-		icode.emitCode(LIT, 
-					   0,
-					   convertStringToInt(look->GetLexeme()));
-	}
+	if (look->GetTag() == NUMBERSYM)
+		icode.emitCode(LIT,0,atoi(look->GetLexeme().c_str()));
 }
