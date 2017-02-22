@@ -1,4 +1,4 @@
-a.out : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
+pl0 : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
 		   Lexer.o Symbol.o ObjCode.o Word.o Num.o
 	clang++ -std=c++11 -o $@ $^
 
@@ -42,4 +42,4 @@ main.o : ./src/xxx.cpp/main.cpp ./src/xxx.h/Vm.h
 	clang++ -std=c++11 -c $< 
 
 clean:
-	rm a.out *.o
+	rm pl0 *.o

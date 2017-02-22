@@ -31,7 +31,7 @@ factor = ident | number | "(" expression ")".
 
 ## Usage
 - make
-- ./a.out "filepath"
+- ./pl0 "filepath"
 - "exec the program"
 - make clean
 
