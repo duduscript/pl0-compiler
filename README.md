@@ -6,7 +6,7 @@
 > It serves as an example of how to construct a compiler.
 
 ### Grammer
-'''
+```
 program = block "." .
 
 block = [ "const" ident "=" number {"," ident "=" number} ";"]
@@ -27,11 +27,11 @@ expression = [ "+"|"-"] term { ("+"|"-") term}.
 term = factor {("*"|"/") factor}.
 
 factor = ident | number | "(" expression ")".
-'''
+```
 
 ## Usage
 - make
-- ./a.out <filepath>
-- <exec the program>
+- ./a.out "filepath"
+- "exec the program"
 - make clean
 
