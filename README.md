@@ -1,7 +1,7 @@
 #pl0-compiler
-> This is a compiler for pl0 programming language
+> This is a compiler for pl0 programming language writen in C++
 
-## Introduction
+## Introduction of pl0
 > pl0 is similar to but much simpler than the general-purpose programming language Pascal,intend as an educational programming language.
 > It serves as an example of how to construct a compiler.
 
@@ -35,3 +35,5 @@ factor = ident | number | "(" expression ")".
 - "exec the program"
 - make clean
 
+## LICENSE
+MIT © [duduscript](https://github.com/duduscript)
