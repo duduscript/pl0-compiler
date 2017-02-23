@@ -1,4 +1,4 @@
-#pl0-compiler
+# pl0-compiler
 > This is a compiler for pl0 programming language writen in C++
 
 ## Introduction of pl0
