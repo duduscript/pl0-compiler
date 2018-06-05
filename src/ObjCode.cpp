@@ -2,8 +2,8 @@
 #include <string>
 #include <iomanip>
 
-#include "../xxx.h/ObjCode.h"
-#include "../xxx.h/Code.h"
+#include "ObjCode.h"
+#include "Code.h"
 
 ObjCode::ObjCode()
 {

@@ -1,5 +1,5 @@
-#include "../xxx.h/Parse.h"
-#include "../xxx.h/Vm.h"
+#include "Parse.h"
+#include "Vm.h"
 
 #include <iostream>
 #include <string>

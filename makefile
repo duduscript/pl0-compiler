@@ -1,45 +1,25 @@
-pl0 : main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
-		   Lexer.o Symbol.o ObjCode.o Word.o Num.o
-	clang++ -std=c++11 -o $@ $^
+INCDIR = ./include
+SRCDIR = ./src
+OBJDIR = ./obj
+BINDIR = ./bin
 
-Parse.o : ./src/xxx.cpp/Parse.cpp ./src/xxx.h/Parse.h \
-		./src/xxx.h/Error.h ./src/xxx.h/Token.h ./src/xxx.h/Identifier.h
-	clang++ -std=c++11 -c $< 
+CC = clang++
+CFLAGS = -std=c++11 -I $(INCDIR)
+TARGET = $(BINDIR)/pl0
 
-Vm.o : ./src/xxx.cpp/Vm.cpp ./src/xxx.h/Vm.h \
-		./src/xxx.h/ObjCode.h ./src/xxx.h/Code.h
-	clang++ -std=c++11 -c $< 
+_OBJS = main.o Parse.o Vm.o Error.o Token.o Code.o Identifier.o \
+	    Lexer.o Symbol.o ObjCode.o Word.o Num.o
 
-Error.o : ./src/xxx.cpp/Error.cpp ./src/xxx.h/Error.h
-	clang++ -std=c++11 -c $< 
+OBJS = $(patsubst %, $(OBJDIR)/%, $(_OBJS))
 
-Token.o : ./src/xxx.cpp/Token.cpp ./src/xxx.h/Token.h
-	clang++ -std=c++11 -c $< 
+all: $(TARGET)
 
-Code.o : ./src/xxx.cpp/Code.cpp  ./src/xxx.h/Code.h
-	clang++ -std=c++11 -c $<
+$(TARGET) : $(OBJS)
+	$(CC) -o  $@ $^
 
-Identifier.o : ./src/xxx.cpp/Identifier.cpp  ./src/xxx.h/Identifier.h
-	clang++ -std=c++11 -c $<
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-Lexer.o : ./src/xxx.cpp/Lexer.cpp ./src/xxx.h/Lexer.h ./src/xxx.h/Num.h\
-		./src/xxx.h/Word.h ./src/xxx.h/Symbol.h ./src/xxx.h/Error.h
-	clang++ -std=c++11 -c $<
-
-Symbol.o : ./src/xxx.cpp/Symbol.cpp  ./src/xxx.h/Symbol.h
-	clang++ -std=c++11 -c $< 
-
-ObjCode.o : ./src/xxx.cpp/ObjCode.cpp  ./src/xxx.h/ObjCode.h ./src/xxx.h/Code.h
-	clang++ -std=c++11 -c $< 
-
-Word.o : ./src/xxx.cpp/Word.cpp  ./src/xxx.h/Word.h
-	clang++ -std=c++11 -c $< 
-
-Num.o : ./src/xxx.cpp/Num.cpp  ./src/xxx.h/Num.h ./src/xxx.h/Token.h ./src/xxx.h/Error.h
-	clang++ -std=c++11 -c $< 
-
-main.o : ./src/xxx.cpp/main.cpp ./src/xxx.h/Vm.h
-	clang++ -std=c++11 -c $< 
-
+.PHONY : clean
 clean:
-	rm pl0 *.o
+	rm -rf $(BINDIR)/* $(OBJDIR)/*

@@ -4,6 +4,7 @@
 #include "Lexer.h"
 #include "ObjCode.h"
 #include "Identifier.h"
+
 class Token;
 
 class Parse

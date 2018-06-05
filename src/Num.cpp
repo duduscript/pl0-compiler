@@ -2,9 +2,9 @@
 #include <sstream>
 #include <iomanip>
 
-#include "../xxx.h/Num.h"
-#include "../xxx.h/Token.h"
-#include "../xxx.h/Error.h"
+#include "Num.h"
+#include "Token.h"
+#include "Error.h"
 
 Num::Num(){}
 

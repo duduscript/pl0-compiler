@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "../xxx.h/Vm.h"
-#include "../xxx.h/Code.h"
-#include "../xxx.h/ObjCode.h"
+#include "Vm.h"
+#include "Code.h"
+#include "ObjCode.h"
 
 Vm::Vm(ObjCode& _objCode) :objCode(_objCode)
 {

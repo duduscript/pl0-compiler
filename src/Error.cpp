@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../xxx.h/Error.h"
+#include "Error.h"
 
 const std::string parseErrors[] = {
 	/* 0. */ "No errors, program is syntactically correct.",

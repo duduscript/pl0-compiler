@@ -2,10 +2,10 @@
 #include <sstream>
 #include <cstdlib>
 
-#include "../xxx.h/Parse.h"
-#include "../xxx.h/Error.h"
-#include "../xxx.h/Token.h"
-#include "../xxx.h/Identifier.h"
+#include "Parse.h"
+#include "Error.h"
+#include "Token.h"
+#include "Identifier.h"
 
 Parse::Parse() :look(0){}
 

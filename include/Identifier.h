@@ -1,8 +1,9 @@
 #ifndef IDENTIFIER_H
 #define IDENTIFIER_H
 
-#include <map>
 #include <vector>
+#include <map>
+#include <string>
 
 enum KIND {VAR = 1, CONST, PROC};
 

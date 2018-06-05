@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../xxx.h/Word.h"
+#include "Word.h"
 
 Word::Word(){}
 

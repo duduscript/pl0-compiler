@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../xxx.h/Code.h"
+#include "Code.h"
 
 Code::Code(int _op, int _l, int _m) :op(_op), l(_l), m(_m){}
 
